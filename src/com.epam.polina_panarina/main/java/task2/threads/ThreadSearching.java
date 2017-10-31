@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class ThreadSearching extends Thread {
     WordCount wordCount = new WordCount();
-    String someString;
-    String word;
+    protected ArrayList<String> someString;
+    protected String word;
 
-    public ThreadSearching(String someString, String word) {
+    public ThreadSearching( ArrayList<String>  someString, String word) {
         this.someString = someString;
         this.word = word;
     }

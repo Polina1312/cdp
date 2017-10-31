@@ -14,8 +14,8 @@ public class MyFileReader {
         return Files.readAllLines(Paths.get(filePath), StandardCharsets.UTF_8);
     }
 
-    public static List<String> linesFromFile2(String filePath) throws IOException {
-        List<String> lines = new ArrayList<String>();
+    public static ArrayList<String> linesFromFile2(String filePath) throws IOException {
+        ArrayList<String> lines = new ArrayList<String>();
         try {
             File file = new File(filePath);
             FileReader fr = new FileReader(file);

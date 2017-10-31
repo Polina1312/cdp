@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import task2.filereasder.MyFileReader;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 
@@ -22,22 +24,24 @@ public class WordCountTest {
 
     @Test
     public void threadsQuantity() throws Exception {
-        wordCount.threadsQuantity(FILE_PATH);
-        Assert.assertEquals(2, wordCount.threadsQuantity(FILE_PATH));
+        double a = wordCount.threadsQuantity(FILE_PATH);
+        Assert.assertTrue(4.0 == a);
     }
 
 
-//    @Test
-//    public void wordCountOneWord() throws Exception {
-//        wordCount.wordCountOneWord("Jioi hello fff hello hello", "hello");
-//        Assert.assertEquals(3, wordCount.wordCountOneWord("Jioi hello fff hello hello","hello"));
-//    }
+    @Test
+    public void wordCountOneWord() throws Exception {
+        ArrayList<String> s = new ArrayList<String>();
+        s.add("Jioi hello fff hello hello");
+        s.add("hello");
+        wordCount.wordCountOneWord(s, "hello");
+        Assert.assertEquals(4, wordCount.wordQuantity);
+    }
 
     @Test
     public void count() throws Exception {
-        double threadsQ = wordCount.threadsQuantity(FILE_PATH);
-        int c = wordCount.count(FILE_PATH, "hello", threadsQ);
+       wordCount.count(FILE_PATH, "hello", 2);
 
-        Assert.assertTrue(c==2);
+        Assert.assertTrue(wordCount.wordQuantity==2);
     }
 }
